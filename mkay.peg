@@ -1,0 +1,59 @@
+{
+  function cc(it){
+    var clone=[];
+    for(var p in it){
+        clone.push(it[p]);
+    }
+    return clone.join("");
+  }
+
+  function all(it) {
+    return it.map(function(a) {return cc(a)}).join("");
+  }
+
+}
+
+start
+  = expression*
+
+integer "integer"
+  = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
+
+expression
+  = list / atom
+
+nsq 
+  = head:expression _ tail:nsq { tail.unshift(head); return tail; } / onesq
+
+onesq
+  = exp:expression {return [exp]; }/ emptysq
+
+emptysq
+  = seq: _? { return []; }
+
+list 
+  = (_? '(' _? seq:nsq _? ')' _?) { return seq; }
+
+atom 
+  = identifier / bool / float / integer / string
+
+bool
+  = true / false
+
+true
+  = '#t' { return true; }
+
+false
+  = '#f' { return false; }
+ 
+float
+  = ('+' / '-')? [0-9]+ (('.' [0-9]+) / ('e' [0-9]+))
+
+string
+  = '"' s:([^"\\] / "\\" . )* '"' { return all(s); }
+
+identifier
+  = id:([a-zA-Z\=\*:] [a-zA-Z0-9_\=\*-:]*) { return all(id); }
+
+_
+  = [\s\n\t ]+ { return ""; }
