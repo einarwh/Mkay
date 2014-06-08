@@ -10,11 +10,10 @@
   function all(it) {
     return it.map(function(a) {return cc(a)}).join("");
   }
-
 }
 
 start
-  = expression*
+  = _? exp:expression* _? { return exp; }
 
 integer "integer"
   = digits:[0-9]+ { return parseInt(digits.join(""), 10); }
@@ -26,13 +25,13 @@ nsq
   = head:expression _ tail:nsq { tail.unshift(head); return tail; } / onesq
 
 onesq
-  = exp:expression {return [exp]; }/ emptysq
+  = exp:expression {return [exp]; } / emptysq
 
 emptysq
-  = seq: _? { return []; }
+  = _? { return []; }
 
 list 
-  = (_? '(' _? seq:nsq _? ')' _?) { return seq; }
+  = '(' _? seq:nsq _? ')' { return seq; }
 
 atom 
   = identifier / bool / float / integer / string
