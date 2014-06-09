@@ -12,19 +12,22 @@
   }
 
   function asInt(ss) {
-    parseInt(ss.join(""), 10)
+    return parseInt(ss.join(""), 10);
   }
 }
 
 start
-  = _? exp:expression* _? { return exp; }
-
+  = _? exp:(list / formbody) _? { return exp; }
 
 expression
   = list / atom
 
 nsq 
-  = head:expression _ tail:nsq { tail.unshift(head); return tail; } / onesq
+  = head:expression _ tail:nsq { 
+    tail.unshift(head); 
+    return tail; 
+  } 
+  / onesq
 
 onesq
   = exp:expression {return [exp]; } / emptysq
@@ -33,14 +36,31 @@ emptysq
   = _? { return []; }
 
 list 
-  = '(' _? seq:nsq _? ')' { return seq; }
+  = '(' _? seq:formbody _? ')' { 
+  return seq;
+}
+
+formbody
+  = seq:nsq { 
+  var head = seq.shift();
+  return {
+    type: "call",
+    value: head.value,
+    operands: seq
+  };
+}
 
 atom 
-  = identifier / bool / float / integer / string / datetime
+  = identifier / self / comparison / arith / bool / float / integer / string / datetime
+
+self
+  = self:'.' {
+  return { type: "name", value: self }
+}
 
 integer "integer"
   = digits:[0-9]+ { 
-  var v = parseInt(digits.join(""), 10); 
+  var v = asInt(digits); 
   return { type: "integer", value: v };
 }
 
@@ -54,6 +74,16 @@ true
 
 false
   = '#f' { return false; }
+
+comparison
+  = op:('<' / '<=' / '==' / '!=' / '>=' / '>') { 
+  return { type: "name", value: op };
+}
+
+arith
+  = op:('+' / '-' / '*' / '/') { 
+  return { type: "name", value: op };
+}
  
 float
   = sign:('+' / '-')? int:[0-9]+ dec:('.' [0-9]+) {
@@ -71,9 +101,9 @@ datetime
         mm:('1' [0-2] / '0'? [1-9]) '.'
         yyyy: ([0-9] [0-9] [0-9] [0-9]) '}' 
   { 
-    var days = parseInt(dd.join(""), 10);
-    var month = parseInt(mm.join(""), 10);
-    var year = parseInt(yyyy.join(""), 10);
+    var days = asInt(dd);
+    var month = asInt(mm);
+    var year = asInt(yyyy);
     return { 
        type: "datetime",
        value: new Date(year, month, days)
