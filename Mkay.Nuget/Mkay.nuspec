@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>Mkay</id>
+        <version>0.0.2</version>
+        <title>Mkay Validation Attribute</title>
+        <authors>Einar W. Høst</authors>
+        <owners>Einar W. Høst</owners>
+        <licenseUrl>https://bitbucket.org/einarwh/mkay/raw/8637253f0339125ecaa09387fddcacac5733326a/License.txt</licenseUrl>
+        <projectUrl>https://bitbucket.org/einarwh/mkay</projectUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Mkay is a custom validation attribute that allows you to specify validation rules in a LISP-like syntax. It is the one validation attribute to rule them all.</description>
+        <summary />
+        <copyright>2013 - Einar W. Høst</copyright>
+        <tags>ASP.NET MVC, Data validation, JQuery Validation</tags>
+        <dependencies>
+            <dependency id="Microsoft.jQuery.Unobtrusive.Validation" version="2.0.30116.0" />
+            <dependency id="Microsoft.AspNet.Mvc" version="4.0.20710.0" />
+            <dependency id="Newtonsoft.Json" version="4.5.11" />
+            <dependency id="WebActivatorEx" version="2.0.1" />
+        </dependencies>
+    </metadata>
+</package>

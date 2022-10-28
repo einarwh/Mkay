@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mkay", "..\..\..\..\..\..\Dropbox\code\bitbucket\Mkay\Mkay\Mkay.csproj", "{FE3437C2-BE9D-4626-ADD5-666CD4861A74}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mkay.Test", "..\..\..\..\..\..\Dropbox\code\bitbucket\Mkay\Mkay.Test\Mkay.Test.csproj", "{D2E799EE-691E-42DB-B0FD-546CABFB1858}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Mkay.JS", "Mkay.JS", "{E56A14FC-E24E-4C36-90CF-950D7216D6FA}"
+	ProjectSection(SolutionItems) = preProject
+		Mkay.JS\Fixture.html = Mkay.JS\Fixture.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "QUnit", "QUnit", "{5DD91C7D-D84C-4A97-B8AF-9E269585E352}"
+	ProjectSection(SolutionItems) = preProject
+		Mkay.JS\QUnit\qunit-1.11.0.css = Mkay.JS\QUnit\qunit-1.11.0.css
+		Mkay.JS\QUnit\qunit-1.11.0.js = Mkay.JS\QUnit\qunit-1.11.0.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{F21A74E9-97F9-4933-91F5-6174F9934E8C}"
+	ProjectSection(SolutionItems) = preProject
+		Mkay.JS\Scripts\mkay-jquery.js = Mkay.JS\Scripts\mkay-jquery.js
+		Mkay.JS\Scripts\mkay-parser.js = Mkay.JS\Scripts\mkay-parser.js
+		Mkay.JS\Scripts\mkay-validation.js = Mkay.JS\Scripts\mkay-validation.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{36D2F061-8D9D-4282-807B-A81F9BE3F097}"
+	ProjectSection(SolutionItems) = preProject
+		Mkay.JS\Tests\mkay-tests.js = Mkay.JS\Tests\mkay-tests.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FE3437C2-BE9D-4626-ADD5-666CD4861A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE3437C2-BE9D-4626-ADD5-666CD4861A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE3437C2-BE9D-4626-ADD5-666CD4861A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE3437C2-BE9D-4626-ADD5-666CD4861A74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2E799EE-691E-42DB-B0FD-546CABFB1858}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2E799EE-691E-42DB-B0FD-546CABFB1858}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2E799EE-691E-42DB-B0FD-546CABFB1858}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2E799EE-691E-42DB-B0FD-546CABFB1858}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5DD91C7D-D84C-4A97-B8AF-9E269585E352} = {E56A14FC-E24E-4C36-90CF-950D7216D6FA}
+		{F21A74E9-97F9-4933-91F5-6174F9934E8C} = {E56A14FC-E24E-4C36-90CF-950D7216D6FA}
+		{36D2F061-8D9D-4282-807B-A81F9BE3F097} = {E56A14FC-E24E-4C36-90CF-950D7216D6FA}
+	EndGlobalSection
+EndGlobal
